@@ -1,31 +1,30 @@
-import React, { useMemo } from 'react';
-
-const ExpensiveComponent = () => {
-
-// some expensive computation or heavy operation
+import React, { useRef } from 'react';
 
 
-const expensiveResult = useMemo(() => {
-  // ... code for expensive computation
+const MyComponent = () => {
 
-  let result = 0;
-  // simulating an expensive computation
-  for( let i = 0; i < 4090000000; i++) {
-    result += i;
-  }
-  return result;//result of expensive computation
-}, []); // array dependency
+ const timerRef = useRef(null);
+
+ const startTimer = () => {
+  timerRef.current = setInterval(() => {
+    console.log('Time running');
+  }, 1);
+ };
 
 
-return (
+ const stopTimer = () => {
+  clearInterval(timerRef.current);
+ };
+
+ return (
   <div>
-    <h1>Expensive Component</h1>
-    <p> Result: {expensiveResult}</p>
+    <button onClick={startTimer}>Start</button>
+    <button onClick={stopTimer}>Stop</button>
   </div>
-);
-
+ );
 
 
 };
 
-export default ExpensiveComponent;
+
+export default MyComponent;
