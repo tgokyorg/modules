@@ -1,0 +1,33 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    margin: 0 auto;
+
+  
+    padding: 20px;
+    background-color: #50ceeb;
+    border-radius:25px;
+
+}
+
+
+.keypad {
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.operator {
+background-color: #622f8a;
+color: #f5f3f3;
+
+}
+
+.calculate {
+
+    background-color: #e30719;
+    color: #fff;
+
+}
